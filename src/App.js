@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react";
-import "./App.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+
+import { Navbar } from "./components/navbar";
+import { HomePage } from "./pages/HomePage";
+import { SubredditPage } from "./pages/SubredditPage";
+import { SearchPage } from "./pages/SearchPage";
+import { ErrorPage } from "./pages/ErrorPage";
 
 function App() {
-  const [status, setStatus] = useState("it is working");
-
-  const fetchReddit = async () => {
-    try {
-      const response = await fetch("https://www.reddit.com/r/popular.json");
-      if (response.ok) {
-        const jsonResponse = await response.json();
-        console.log(jsonResponse);
-        setStatus(jsonResponse.data.children[0].data.title);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    const newStatus = fetchReddit();
-  }, []);
-
-  return <div>{status}</div>;
+  return (
+    <Router>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/r/:subreddit" component={SubredditPage} />
+        <Route exact path="/search/:searchTerm" component={SearchPage} />
+        <Route exact path="/:error" component={ErrorPage} />
+        <Redirect to="/" />
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;

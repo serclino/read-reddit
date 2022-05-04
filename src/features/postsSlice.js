@@ -24,13 +24,17 @@ const postsSlice = createSlice({
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.posts = state.posts.concat(action.payload);
+        state.posts = state.posts.concat(action.payload.data); // TO-DO
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
-      })
+      });
   },
 });
 
 export default postsSlice.reducer;
+
+export const selectAllPosts = (state) => state.posts.posts;
+
+export const selectStatus = (state) => state.posts.status;
