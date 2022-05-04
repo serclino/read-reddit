@@ -7,7 +7,6 @@ function App() {
   const fetchReddit = async () => {
     try {
       const response = await fetch("https://www.reddit.com/r/popular.json");
-      console.log(response);
       if (response.ok) {
         const jsonResponse = await response.json();
         console.log(jsonResponse);
