@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Filter } from "../components/filter/Filter";
+import { Posts } from '../components/posts/Posts'
 
 export const HomePage = () => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <>
+      <Filter />
+      <Posts />
+    </>
+  );
+};

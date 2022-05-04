@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { Navbar } from "./components/navbar";
+import { Navbar } from "./components/navbar/Navbar";
 import { HomePage } from "./pages/HomePage";
 import { SubredditPage } from "./pages/SubredditPage";
 import { SearchPage } from "./pages/SearchPage";
