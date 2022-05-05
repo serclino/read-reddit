@@ -14,7 +14,7 @@ export const SinglePost = ({
 
   return (
     <div className="single-post">
-      <h5>author : {author}</h5>
+      <h5>posted by {author}</h5>
       <p>to {subreddit}</p>
       <p className="time">{time}</p>
       <h4>{title}</h4>

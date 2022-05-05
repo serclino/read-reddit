@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import { Navbar } from "./components/navbar/Navbar";
+import { Subreddits } from "./components/subreddits/SubredditsList";
 import { HomePage } from "./pages/HomePage";
 import { SubredditPage } from "./pages/SubredditPage";
 import { SearchPage } from "./pages/SearchPage";
@@ -16,6 +17,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Subreddits />
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/r/:subreddit" component={SubredditPage} />
