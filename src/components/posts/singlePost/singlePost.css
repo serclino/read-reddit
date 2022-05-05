@@ -1,0 +1,12 @@
+.image {
+  width: 300px;
+  height: auto;
+}
+
+.image img {
+    width: 100%;
+}
+
+h5 {
+  color: red;
+}

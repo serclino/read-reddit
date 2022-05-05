@@ -19,13 +19,27 @@ export const Posts = () => {
   }
 
   if (status === "succeeded") {
-    //console.log(posts);
+    console.log(posts);
     return (
       <>
-        {posts.map((post) => {
-          const subreddit = post.data.subreddit;
+        {posts.map((post, id) => {
+          const subreddit = post.data.subreddit_name_prefixed;
+          const author = post.data.author;
+          const numComments = post.data.num_comments;
+          const image = post.data.url.includes('.jpg') ? post.data.url : null;
+          const title = post.data.title;
+          // console.log(image);
           //console.log(subreddit);
-          return <SinglePost subreddit={subreddit} />;
+          return (
+            <SinglePost
+              key={id}
+              subreddit={subreddit}
+              author={author}
+              numComments={numComments}
+              image={image}
+              title={title}
+            />
+          );
         })}
       </>
     );

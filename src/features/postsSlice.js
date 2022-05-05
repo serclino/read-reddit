@@ -9,7 +9,7 @@ const initialState = {
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const response = await fetch("https://www.reddit.com/r/popular.json");
   const jsonData = await response.json();
-  console.log(jsonData);
+  // console.log(jsonData);
   return jsonData;
 });
 
