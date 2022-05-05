@@ -24,3 +24,11 @@ h5 {
 .time {
   font-style: italic;
 }
+
+.show-more {
+  color: red;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: 1rem;
+}

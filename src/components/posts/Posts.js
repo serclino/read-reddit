@@ -16,7 +16,7 @@ export const Posts = () => {
   const filter = useSelector(selectFilter);
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchPosts(filter));
   }, [filter]);
 
   if (status === "loading") {
