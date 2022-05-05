@@ -1,18 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
+import { formatTimestamp } from "../helpers/helperFunctions";
 
 const initialState = {
   posts: [],
   status: "idle",
   error: null,
 };
-
-// helper function
-function formatTimestamp(timestamp) {
-  const date = fromUnixTime(timestamp);
-  const timeAgo = formatDistanceToNowStrict(date, { addSuffix: true });
-  return timeAgo;
-}
 
 export const fetchPosts = createAsyncThunk(
   "posts/fetchPosts",

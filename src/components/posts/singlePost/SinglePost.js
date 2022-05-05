@@ -23,11 +23,16 @@ export const SinglePost = ({
           <img src={image} alt={title} />
         </div>
       ) : null}
+
       {text ? (
         isTextLong ? (
           <p className="selftext">
             {text.substring(0, 250)}...
-            <button className="show-more" type="button" onClick={() => setIsTextLong(!isTextLong)}>
+            <button
+              className="show-more"
+              type="button"
+              onClick={() => setIsTextLong(!isTextLong)}
+            >
               Show more
             </button>
           </p>
@@ -35,6 +40,7 @@ export const SinglePost = ({
           <p className="selftext">{text}</p>
         )
       ) : null}
+
       <a href="/">{numOfComments} comments</a>
     </div>
   );
