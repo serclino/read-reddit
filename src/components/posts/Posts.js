@@ -5,6 +5,16 @@ import { fetchPosts } from "../../features/postsSlice";
 
 import { SinglePost } from "./singlePost/SinglePost";
 
+import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
+
+// helper function
+function formatTimestamp(timestamp) {
+  const date = fromUnixTime(timestamp);
+  const timeAgo = formatDistanceToNowStrict(date, { addSuffix: true });
+  return timeAgo;
+}
+
+// component
 export const Posts = () => {
   const dispatch = useDispatch();
   const posts = useSelector(selectAllPosts);
@@ -26,10 +36,13 @@ export const Posts = () => {
           const subreddit = post.data.subreddit_name_prefixed;
           const author = post.data.author;
           const numComments = post.data.num_comments;
-          const image = post.data.url.includes('.jpg') ? post.data.url : null;
+          const image = post.data.url.includes(".jpg") ? post.data.url : null;
           const title = post.data.title;
-          // console.log(image);
-          //console.log(subreddit);
+          const text = post.data.selftext;
+          //handling time
+          const timestamp = post.data.created_utc;
+          const time = formatTimestamp(timestamp);
+
           return (
             <SinglePost
               key={id}
@@ -38,6 +51,8 @@ export const Posts = () => {
               numComments={numComments}
               image={image}
               title={title}
+              text={text}
+              time={time}
             />
           );
         })}
