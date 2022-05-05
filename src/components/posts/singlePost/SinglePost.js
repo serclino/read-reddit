@@ -2,16 +2,16 @@ import React from "react";
 import "./singlePost.css";
 
 export const SinglePost = ({
-  subreddit,
   author,
-  numComments,
-  image,
+  subreddit,
+  time,
   title,
   text,
-  time
+  image,
+  numOfComments
 }) => {
   return (
-    <>
+    <div className="single-post">
       <h5>author : {author}</h5>
       <p>to {subreddit}</p>
       <p className="time">{time}</p>
@@ -22,8 +22,7 @@ export const SinglePost = ({
         </div>
       ) : null}
       {text ? <p className="selftext">{text}</p> : null}
-
-      <a href="/">{numComments} comments</a>
-    </>
+      <a href="/">{numOfComments} comments</a>
+    </div>
   );
 };

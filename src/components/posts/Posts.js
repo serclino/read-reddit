@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
 import { selectAllPosts, selectStatus } from "../../features/postsSlice";
 import { fetchPosts } from "../../features/postsSlice";
 
 import { SinglePost } from "./singlePost/SinglePost";
 
-import { formatDistanceToNowStrict, fromUnixTime } from "date-fns";
 
 // helper function
 function formatTimestamp(timestamp) {
@@ -29,10 +29,12 @@ export const Posts = () => {
   }
 
   if (status === "succeeded") {
-    console.log(posts);
+    // console.log(posts);
     return (
+        
       <>
-        {posts.map((post, id) => {
+        {posts.map((post,id) => <SinglePost key={id} {...post} /> )}
+{/*         {posts.map((post, id) => {
           const subreddit = post.data.subreddit_name_prefixed;
           const author = post.data.author;
           const numComments = post.data.num_comments;
@@ -55,7 +57,7 @@ export const Posts = () => {
               time={time}
             />
           );
-        })}
+        })} */}
       </>
     );
   }
