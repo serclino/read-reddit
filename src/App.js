@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css";
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,14 +18,20 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Subreddits />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/r/:subreddit" component={SubredditPage} />
-        <Route exact path="/search/:searchTerm" component={SearchPage} />
-        <Route exact path="/:error" component={ErrorPage} />
-        <Redirect to="/" />
-      </Switch>
+      <div className="layout">
+        <div>
+          <Subreddits />
+        </div>
+        <div>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/r/:subreddit" component={SubredditPage} />
+            <Route exact path="/search/:searchTerm" component={SearchPage} />
+            <Route exact path="/:error" component={ErrorPage} />
+            <Redirect to="/" />
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 }
