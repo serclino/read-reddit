@@ -33,6 +33,7 @@ export const fetchSubreddits = createAsyncThunk(
         url: url,
       };
     });
+    newSubreddits.shift();
     console.log(newSubreddits);
     return newSubreddits;
   }
