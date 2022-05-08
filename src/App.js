@@ -18,11 +18,11 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="layout">
-        <div>
+      <div className="mainContent">
+        <section className="subreddits-aside">
           <Subreddits />
-        </div>
-        <div>
+        </section>
+        <section className="filter-and-posts">
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/r/:subreddit" component={SubredditPage} />
@@ -30,7 +30,7 @@ function App() {
             <Route exact path="/:error" component={ErrorPage} />
             <Redirect to="/" />
           </Switch>
-        </div>
+        </section>
       </div>
     </Router>
   );

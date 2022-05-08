@@ -1,9 +1,12 @@
+// to-do: search-icon should be clickable
+
 import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 
 // images
 import logo from "./images/logo.png";
+import search from "./images/search.svg";
 import day from "./images/day.png";
 import github from "./images/github.png";
 
@@ -19,7 +22,7 @@ export const Navbar = () => {
         <form className="search-bar">
           <label htmlFor="searchTerm">
             <div className="search-icon">
-              <img src={day} alt="" />
+              <img src={search} alt="" />
             </div>
           </label>
           <input type="text" id="searchTerm" placeholder="Search for Topics" />
@@ -29,7 +32,7 @@ export const Navbar = () => {
             <img src={day} alt="day" />
           </button>
           <div className="github">
-            <a href="https://github.com/serclino" target='_blank'>
+            <a href="https://github.com/serclino" target="_blank">
               <img src={github} alt="" />
             </a>
           </div>

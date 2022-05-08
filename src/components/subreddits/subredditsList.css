@@ -1,0 +1,44 @@
+.home {
+  display: flex;
+  align-items: center;
+  background-color: #fff0eb;
+  width: 200px;
+  text-decoration: none;
+}
+
+.stripe {
+  width: 6px;
+  height: 36px;
+  margin-right: 12px;
+  background-color: #ff4500;
+}
+
+h6 {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.38;
+  color: #666666;
+}
+
+.home h6 {
+  color: #ff4500;
+  margin-left: 6px;
+}
+
+.toggle-button {
+  display: flex;
+  margin: 10px 0 10px 18px;
+  border: none;
+  background-color: transparent;
+}
+
+.toggle-button img {
+  margin-right: 6px;
+}
+
+.arrow-down {
+    transform: rotate(180deg);
+}
+
+
+

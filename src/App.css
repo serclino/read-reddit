@@ -1,5 +1,4 @@
-.layout {
+.mainContent {
   display: flex;
-  margin: 25px;
-  background-color: #fcfcfc;
+  margin: 0 20.625%;
 }
