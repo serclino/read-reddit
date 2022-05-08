@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
 
 export const SubredditPage = () => {
-  return (
-    <div>SubredditPage</div>
-  )
-}
-
+  console.log("subredditPage rendered!");
+  return <div>SubredditPage</div>;
+};

@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
@@ -16,7 +15,7 @@ import { ErrorPage } from "./pages/ErrorPage";
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <div className="mainContent">
         <section className="subreddits-aside">
@@ -32,7 +31,7 @@ function App() {
           </Switch>
         </section>
       </div>
-    </Router>
+    </>
   );
 }
 

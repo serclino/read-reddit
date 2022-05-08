@@ -36,9 +36,30 @@ h6 {
   margin-right: 6px;
 }
 
-.arrow-down {
-    transform: rotate(180deg);
+.arrow-up {
+  transform: rotate(0deg);
+  transition: transform 0.1s linear;
 }
 
+.arrow-down {
+  transform: rotate(180deg);
+  transition: transform 0.1s linear;
+}
 
+.links {
+    margin-left: 39px;
+    margin-bottom: 12px;
+}
 
+.link-to-subreddit {
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1.38;
+  color: #666666;
+  text-decoration: none;
+}
+
+.clicked-link {
+    text-decoration: underline;
+    color: #ff4500;
+}

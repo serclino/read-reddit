@@ -6,7 +6,7 @@ import {
   selectAllSubreddits,
   selectStatus,
 } from "../../features/subredditsSlice";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // images
 import home from "./images/home.svg";
@@ -38,13 +38,20 @@ export const Subreddits = () => {
         className='toggle-button'
         onClick={() => setShowSubreddits(!showSubreddits)}
       >
-        <img src={showArrow} alt="toggle arrow" className={`${showSubreddits ? null : 'arrow-down'}`} />
+        <img src={showArrow} alt="toggle arrow" className={`${showSubreddits ? 'arrow-up' : 'arrow-down'}`} />
         <h6>Subreddits</h6>
       </button>
 
       {showSubreddits
         ? subreddits.map((subreddit) => {
-            return <h6>{subreddit.subreddit}</h6>;
+            return (
+              <div className="links">
+                <img src={arrow} alt="arrow" />
+                <NavLink to={`/${subreddit.subreddit}`} className="link-to-subreddit" activeClassName="clicked-link">
+                  {subreddit.subreddit}
+                </NavLink>
+              </div>
+            );
           })
         : null}
     </>
