@@ -20,7 +20,7 @@ export const Posts = () => {
   }, [filter]);
 
   if (status === "loading") {
-    return "Loading...";
+    return "Loading posts...";
   }
 
   if (status === "succeeded") {

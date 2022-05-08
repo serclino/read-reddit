@@ -1,3 +1,5 @@
+// delete first subreddit from the array!
+
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -58,3 +60,5 @@ const subredditsSlice = createSlice({
 export default subredditsSlice.reducer;
 
 export const selectAllSubreddits = state => state.subreddits.subreddits;
+
+export const selectStatus = (state) => state.subreddits.status;
