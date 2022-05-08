@@ -23,22 +23,24 @@ export const Subreddits = () => {
     dispatch(fetchSubreddits());
   }, []);
 
-  if (status === "loading") {
-    return "Loading subreddits...";
-  }
-
   return (
     <>
-      <Link to='/' className="home">
+      <Link to="/" className="home">
         <div className="stripe"></div>
         <img src={home} alt="home" />
         <h6>Home</h6>
       </Link>
       <button
-        className='toggle-button'
+        className="toggle-button"
         onClick={() => setShowSubreddits(!showSubreddits)}
       >
-        <img src={showArrow} alt="toggle arrow" className={`${showSubreddits ? 'arrow-up' : 'arrow-down'}`} />
+        <img
+          src={showArrow}
+          alt="toggle arrow"
+          className={`${
+            showSubreddits && status === "succeeded" ? "arrow-up" : "arrow-down"
+          }`}
+        />
         <h6>Subreddits</h6>
       </button>
 
@@ -47,7 +49,11 @@ export const Subreddits = () => {
             return (
               <div className="links">
                 <img src={arrow} alt="arrow" />
-                <NavLink to={`/${subreddit.subreddit}`} className="link-to-subreddit" activeClassName="clicked-link">
+                <NavLink
+                  to={`/${subreddit.subreddit}`}
+                  className="link-to-subreddit"
+                  activeClassName="clicked-link"
+                >
                   {subreddit.subreddit}
                 </NavLink>
               </div>

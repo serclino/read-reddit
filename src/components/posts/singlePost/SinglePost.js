@@ -13,7 +13,7 @@ export const SinglePost = ({
   const [isTextLong, setIsTextLong] = useState(text && text.length > 250);
 
   return (
-    <div className="single-post">
+    <article className="single-post">
       <h5>posted by {author}</h5>
       <p>to {subreddit}</p>
       <p className="time">{time}</p>
@@ -42,6 +42,6 @@ export const SinglePost = ({
       ) : null}
 
       <a href="/">{numOfComments} comments</a>
-    </div>
+    </article>
   );
 };

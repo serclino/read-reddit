@@ -2,3 +2,11 @@
   display: flex;
   margin: 0 20.625%;
 }
+
+.subreddits-aside {
+  margin-right: 50px;
+}
+
+.filter-and-posts {
+  width: 55.7%;
+}
