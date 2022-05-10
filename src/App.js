@@ -1,13 +1,10 @@
 import React from "react";
 import "./App.css";
-import {
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import { Navbar } from "./components/navbar/Navbar";
 import { Subreddits } from "./components/subreddits/SubredditsList";
+import { Filter } from "./components/filter/Filter";
 import { HomePage } from "./pages/HomePage";
 import { SubredditPage } from "./pages/SubredditPage";
 import { SearchPage } from "./pages/SearchPage";
@@ -22,6 +19,7 @@ function App() {
           <Subreddits />
         </section>
         <section className="filter-and-posts">
+          <Filter />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/r/:subreddit" component={SubredditPage} />
