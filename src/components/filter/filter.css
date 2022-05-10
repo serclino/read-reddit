@@ -14,13 +14,6 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
-  background-color: none;
-    transition: background-color 0.3s ease-in;
-}
-
-.filter-btn:hover {
-  background-color: #fff0eb;
-  transition: background-color 0.3s ease-in;
 }
 
 .filter-btn button {
@@ -39,4 +32,10 @@
   background-color: #ff4500;
   position: absolute;
   transition: left 0.2s linear;
+}
+
+.active-filter {
+  filter: invert(30%) sepia(99%) saturate(2598%) hue-rotate(2deg)
+    brightness(103%) contrast(105%);
+  transition: filter 0.2s linear;
 }
