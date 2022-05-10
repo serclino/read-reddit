@@ -13,14 +13,21 @@ export const Filter = () => {
   const [location, setLocation] = useState({});
   const baseLine = useRef(null);
 
+  const handleClick = (e) => {
+    const newType = e.target.title;
+    dispatch(changeFilter({ nameOfFilter: newType }));
+    const bLine = baseLine.current;
+    const { left } = location;
+    bLine.style.left = `${left}px`;
+  };
+
   const getCoordinates = (e) => {
     const coordinates = e.target.getBoundingClientRect();
-    // console.log(coordinates);
     const left = coordinates.left;
     setLocation({ left });
   };
 
-  // at initial render
+  // on initial render
   useEffect(() => {
     let element = document.querySelector(".filter-btn");
     let coordinates = element.getBoundingClientRect();
@@ -30,39 +37,41 @@ export const Filter = () => {
     baseLine.current.style.top = `${top}px`;
   }, []);
 
-  // after location changed
-  useEffect(() => {
-    const bLine = baseLine.current;
-    const { left } = location;
-    bLine.style.left = `${left}px`;
-  }, [location]);
-
   return (
     <section className="filter-container">
       <div className="base-line" ref={baseLine}></div>
       <div
         className="filter-btn"
         onMouseEnter={getCoordinates}
-        onClick={() => dispatch(changeFilter({ nameOfFilter: "hot" }))}
+        onClick={handleClick}
+        title="hot"
       >
-        <img src={hot} alt="hot" />
-        <button type="button">Hot</button>
+        <img src={hot} alt="hot" onClick={handleClick} title="hot" />
+        <button type="button" onClick={handleClick} title="hot">
+          Hot
+        </button>
       </div>
       <div
         className="filter-btn middle"
         onMouseEnter={getCoordinates}
-        onClick={() => dispatch(changeFilter({ nameOfFilter: "new" }))}
+        onClick={handleClick}
+        title="new"
       >
-        <img src={newish} alt="new" />
-        <button type="button">New</button>
+        <img src={newish} alt="new" onClick={handleClick} title="new" />
+        <button type="button" onClick={handleClick} title="new">
+          New
+        </button>
       </div>
       <div
         className="filter-btn"
         onMouseEnter={getCoordinates}
-        onClick={() => dispatch(changeFilter({ nameOfFilter: "top" }))}
+        onClick={handleClick}
+        title="top"
       >
-        <img src={top} alt="top" />
-        <button type="button">Top</button>
+        <img src={top} alt="top" onClick={handleClick} title="top" />
+        <button type="button" onClick={handleClick} title="top">
+          Top
+        </button>
       </div>
     </section>
   );
