@@ -34,7 +34,7 @@ export const fetchSubreddits = createAsyncThunk(
       };
     });
     newSubreddits.shift();
-    console.log(newSubreddits);
+    // console.log(newSubreddits);
     return newSubreddits;
   }
 );
