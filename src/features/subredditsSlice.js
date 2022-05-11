@@ -1,6 +1,5 @@
-// delete first subreddit from the array!
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import subredditAvatar from "../components/subreddits/images/reddit-avatar.png";
 
 const initialState = {
   subreddits: [],
@@ -60,6 +59,22 @@ const subredditsSlice = createSlice({
 
 export default subredditsSlice.reducer;
 
-export const selectAllSubreddits = state => state.subreddits.subreddits;
+export const selectAllSubreddits = (state) => state.subreddits.subreddits;
 
 export const selectStatus = (state) => state.subreddits.status;
+
+export const selectTargetSubreddit = (state, targetSubreddit) => {
+  const lookFor = state.subreddits.subreddits.find(
+    (item) => item.subreddit === targetSubreddit
+  );
+  if (lookFor) {
+    const icon = lookFor.icon;
+    if (icon) {
+      return icon;
+    } else {
+      return subredditAvatar;
+    }
+  } else {
+    return subredditAvatar;
+  }
+};

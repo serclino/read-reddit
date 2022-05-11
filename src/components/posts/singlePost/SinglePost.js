@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./singlePost.css";
+import { useSelector } from "react-redux";
+import { selectTargetSubreddit } from "../../../features/subredditsSlice";
 
 export const SinglePost = ({
   author,
@@ -11,37 +13,42 @@ export const SinglePost = ({
   numOfComments,
 }) => {
   const [isTextLong, setIsTextLong] = useState(text && text.length > 250);
+  const icon = useSelector((state) => selectTargetSubreddit(state, subreddit));
 
   return (
     <article className="single-post">
-      <h5>posted by {author}</h5>
-      <p>to {subreddit}</p>
-      <p className="time">{time}</p>
+      <div className="head">
+        <img src={icon} alt="reddit-avatar" className="reddit-avatar" />
+        <h5>{author}</h5>
+        <p className="subreddit-para">to {subreddit}</p>
+        <p className="time">{time}</p>
+      </div>
       <h4>{title}</h4>
-      {image ? (
-        <div className="image">
-          <img src={image} alt={title} />
-        </div>
-      ) : null}
-
       {text ? (
         isTextLong ? (
           <p className="selftext">
-            {text.substring(0, 250)}...
+            {text.substring(0, 250)}
             <button
               className="show-more"
               type="button"
               onClick={() => setIsTextLong(!isTextLong)}
             >
-              Show more
+              ...continue reading
             </button>
           </p>
         ) : (
           <p className="selftext">{text}</p>
         )
       ) : null}
+      {image ? (
+        <div className="image-container">
+          <img src={image} alt={title} />
+        </div>
+      ) : null}
 
-      <a href="/">{numOfComments} comments</a>
+      <button>
+        <span>{numOfComments} comments</span>
+      </button>
     </article>
   );
 };

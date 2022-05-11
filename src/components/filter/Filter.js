@@ -36,7 +36,7 @@ export const Filter = () => {
     const top = coordinates.top + 48;
     baseLine.current.style.left = `${left}px`;
     baseLine.current.style.top = `${top}px`;
-  }, []);
+  }, []); // or trigger when url changed
 
   return (
     <section className="filter-container">

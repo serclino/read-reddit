@@ -35,7 +35,7 @@
 }
 
 .active-filter {
-  filter: invert(30%) sepia(99%) saturate(2598%) hue-rotate(2deg)
-    brightness(103%) contrast(105%);
+  filter: invert(35%) sepia(66%) saturate(4118%) hue-rotate(359deg)
+    brightness(104%) contrast(111%);
   transition: filter 0.2s linear;
 }
