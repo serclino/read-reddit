@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./navbar.css";
 import { useDispatch } from "react-redux";
 import { changeSearchTerm } from "../../features/searchSlice";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // images
 import logo from "./images/logo.png";
@@ -13,11 +13,13 @@ import github from "./images/github.png";
 export const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(searchTerm);
     dispatch(changeSearchTerm({ searchTerm }));
+    history.push(`/search/${searchTerm}`);
     setSearchTerm("");
   };
 
