@@ -45,9 +45,9 @@ export const Subreddits = () => {
       </button>
 
       {showSubreddits
-        ? subreddits.map((subreddit) => {
+        ? subreddits.map((subreddit, id) => {
             return (
-              <div className="links">
+              <div className="links" key={id}>
                 <img src={arrow} alt="arrow" />
                 <NavLink
                   to={`/${subreddit.subreddit}`}

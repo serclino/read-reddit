@@ -4,7 +4,7 @@
   border-radius: 4px;
   box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.04);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 

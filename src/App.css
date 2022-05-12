@@ -1,12 +1,12 @@
 .mainContent {
   display: flex;
-  margin: 0 20.625%;
+  margin: 0 10.83%;
 }
 
 .subreddits-aside {
-  margin-right: 40px;
+  margin-right: 50px;
 }
 
 .filter-and-posts {
-  width: 400px;
+  width: 628px;
 }
