@@ -7,6 +7,7 @@ import {
   selectStatus,
 } from "../../features/subredditsSlice";
 import { Link, NavLink } from "react-router-dom";
+import { Spinner } from "../spinner/spinner-2/Spinner";
 
 // images
 import home from "./images/home.svg";
@@ -43,6 +44,8 @@ export const Subreddits = () => {
         />
         <h6>Subreddits</h6>
       </button>
+
+      {status === "loading" ? <Spinner /> : null}
 
       {showSubreddits
         ? subreddits.map((subreddit, id) => {

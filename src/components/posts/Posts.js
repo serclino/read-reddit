@@ -8,6 +8,7 @@ import {
 import { selectFilter } from "../../features/filterSlice";
 
 import { SinglePost } from "./singlePost/SinglePost";
+import { Spinner } from "../spinner/spinner-1/Spinner";
 
 export const Posts = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const Posts = () => {
   }, [filter]);
 
   if (status === "loading") {
-    return "Loading posts...";
+    return <Spinner />;
   }
 
   if (status === "succeeded") {
