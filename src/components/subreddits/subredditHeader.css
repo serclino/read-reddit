@@ -1,0 +1,56 @@
+.subreddit-header {
+    margin-top: 19px;
+    width: 100%;
+    min-height: 175px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    border-radius: 4px;
+    background-color: black;
+    padding: 76px 30px 18px 30px;
+}
+
+.subreddit-header > h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.38;
+    color: #fff;
+}
+
+.subreddit-header > .mySubreddit {
+    opacity: 0.8;
+    font-size: 12px;
+    line-height: 1.42;
+    color: #fff;
+    padding-bottom: 17px;
+} 
+
+.subreddit-header > .subscribers {
+    opacity: 0.8;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #fff;
+}
+
+.description {
+  border-radius: 4px;
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.04);
+  background-color: #fff;
+  padding: 20px 30px 24px 30px;
+}
+
+.description > h2 {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.38;
+    color: #666;
+    padding-bottom: 8px;
+}
+
+.description > p {
+    font-size: 16px;
+    line-height: 1.38;
+    color: #292929;
+}
