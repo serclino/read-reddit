@@ -2,5 +2,5 @@ import React from "react";
 import "./spinner.css";
 
 export const Spinner = () => {
-  return <div class="lds-dual-ring"></div>;
+  return <div className="lds-dual-ring"></div>;
 };

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
   selectAllPosts,
   selectStatus,
@@ -15,10 +16,12 @@ export const Posts = () => {
   const posts = useSelector(selectAllPosts);
   const status = useSelector(selectStatus);
   const filter = useSelector(selectFilter);
+  const { subreddit } = useParams();
 
   useEffect(() => {
-    dispatch(fetchPosts(filter));
-  }, [filter]);
+    const payload = { filter, subreddit: subreddit ? subreddit : "popular" };
+    dispatch(fetchPosts(payload));
+  }, [filter, subreddit]);
 
   if (status === "loading") {
     return <Spinner />;

@@ -9,9 +9,11 @@ const initialState = {
 
 export const fetchPosts = createAsyncThunk(
   "posts/fetchPosts",
-  async (filter) => {
+  async (payload) => {
+    const { filter, subreddit } = payload;
+    console.log(`https://www.reddit.com/r/${subreddit}/${filter}.json`);
     const response = await fetch(
-      `https://www.reddit.com/r/popular/${filter}.json`
+      `https://www.reddit.com/r/${subreddit}/${filter}.json`
     );
     const jsonData = await response.json();
     const newPosts = jsonData.data.children.map((post) => {
