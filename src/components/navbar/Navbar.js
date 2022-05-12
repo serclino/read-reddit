@@ -1,7 +1,7 @@
-// to-do: search-icon should be clickable
-
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
+import { useDispatch } from "react-redux";
+import { changeSearchTerm } from "../../features/searchSlice";
 import { Link } from "react-router-dom";
 
 // images
@@ -11,6 +11,16 @@ import day from "./images/day.png";
 import github from "./images/github.png";
 
 export const Navbar = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(searchTerm);
+    dispatch(changeSearchTerm({ searchTerm }));
+    setSearchTerm("");
+  };
+
   return (
     <nav>
       <section className="nav-content">
@@ -19,13 +29,23 @@ export const Navbar = () => {
             <img src={logo} alt="logo" />
           </a>
         </div>
-        <form className="search-bar">
+        <form className="search-bar" onSubmit={handleSubmit}>
           <label htmlFor="searchTerm">
-            <div className="search-icon">
+            <button
+              className="search-icon"
+              type="button"
+              onClick={handleSubmit}
+            >
               <img src={search} alt="" />
-            </div>
+            </button>
           </label>
-          <input type="text" id="searchTerm" placeholder="Search for Topics" />
+          <input
+            type="text"
+            id="searchTerm"
+            placeholder="Search for Topics"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </form>
         <div className="nav-icons">
           <button className="day">
