@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./singlePost.css";
 import { useSelector } from "react-redux";
-import { selectTargetSubreddit } from "../../../features/subredditsSlice";
+import { selectTargetSubredditIcon } from "../../../features/subredditsSlice";
 
 export const SinglePost = ({
   author,
@@ -13,7 +13,7 @@ export const SinglePost = ({
   numOfComments,
 }) => {
   const [isTextLong, setIsTextLong] = useState(text && text.length > 250);
-  const icon = useSelector((state) => selectTargetSubreddit(state, subreddit));
+  const icon = useSelector((state) => selectTargetSubredditIcon(state, subreddit));
 
   return (
     <article className="single-post">

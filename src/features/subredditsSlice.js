@@ -63,7 +63,7 @@ export const selectAllSubreddits = (state) => state.subreddits.subreddits;
 
 export const selectStatus = (state) => state.subreddits.status;
 
-export const selectTargetSubreddit = (state, targetSubreddit) => {
+export const selectTargetSubredditIcon = (state, targetSubreddit) => {
   const lookFor = state.subreddits.subreddits.find(
     (item) => item.subreddit === targetSubreddit
   );

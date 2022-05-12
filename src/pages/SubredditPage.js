@@ -1,11 +1,11 @@
 import React from "react";
-import { Filter } from "../components/filter/Filter";
 import { Posts } from "../components/posts/Posts";
+import { SubredditHeader } from "../components/subreddits/SubredditHeader";
 
 export const SubredditPage = () => {
   return (
     <>
-      <h1>Subreddit page</h1>
+      <SubredditHeader />
       <Posts />
     </>
   );
