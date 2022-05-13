@@ -18,11 +18,11 @@
 }
 .lds-facebook div:nth-child(1) {
   left: 8px;
-  animation-delay: -0.4s;
+  animation-delay: -2s;
 }
 .lds-facebook div:nth-child(2) {
   left: 32px;
-  animation-delay: -0.2s;
+  animation-delay: -1s;
 }
 .lds-facebook div:nth-child(3) {
   left: 56px;

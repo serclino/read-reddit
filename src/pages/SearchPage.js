@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Posts } from "../components/posts/Posts";
 
 export const SearchPage = () => {
+
   return (
-    <div>SearchPage</div>
-  )
-}
+    <>
+      <Posts />
+    </>
+  );
+};

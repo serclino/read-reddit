@@ -17,7 +17,7 @@ export const Navbar = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(searchTerm);
+    // console.log(searchTerm);
     dispatch(changeSearchTerm({ searchTerm }));
     history.push(`/search/${searchTerm}`);
     setSearchTerm("");
