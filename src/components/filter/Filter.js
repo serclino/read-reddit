@@ -32,14 +32,17 @@ export const Filter = () => {
 
   // on initial render
   useEffect(() => {
+    console.log("ahoj!");
     let element = document.querySelector(".filter-btn");
-    let coordinates = element.getBoundingClientRect();
-    const left = coordinates.left;
-    const top = coordinates.top + 48;
-    baseLine.current.style.left = `${left}px`;
-    baseLine.current.style.top = `${top}px`;
-  }, []); // or trigger when url changed
-
+    if (element) {
+      let coordinates = element.getBoundingClientRect();
+      const left = coordinates.left;
+      const top = coordinates.top + 48;
+      baseLine.current.style.left = `${left}px`;
+      baseLine.current.style.top = `${top}px`;
+          dispatch(changeFilter({ nameOfFilter: 'hot' }));
+    }
+  }, [searchTerm]); // or trigger when url changed
 
   const divOfFilters = (
     <>
@@ -99,11 +102,7 @@ export const Filter = () => {
     </>
   );
 
-  const searching = (
-    <div id="searching">
-      Search results for '{searchTerm}'
-    </div>
-  );
+  const searching = <div id="searching">Search results for <span>'{searchTerm}'</span></div>;
 
   return (
     <section className="filter-container">

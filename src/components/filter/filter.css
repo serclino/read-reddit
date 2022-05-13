@@ -39,3 +39,8 @@
     brightness(104%) contrast(111%);
   transition: filter 0.2s linear;
 }
+
+#searching > span {
+  color: #ff4500;
+  font-weight: 600;
+}

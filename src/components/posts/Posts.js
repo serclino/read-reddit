@@ -7,7 +7,7 @@ import {
   fetchPosts,
   fetchPostsBasedOnSearchTerm,
 } from "../../features/postsSlice";
-import { selectFilter } from "../../features/filterSlice";
+import { selectFilter, changeFilter } from "../../features/filterSlice";
 import { selectSearchTerm, changeSearchTerm } from "../../features/searchSlice";
 
 import { SinglePost } from "./singlePost/SinglePost";
@@ -25,10 +25,9 @@ export const Posts = () => {
 
   useEffect(() => {
     const payload = { filter, subreddit: subreddit ? subreddit : "popular" };
-    console.log(url.searchTerm);
-
     if (url.searchTerm) {
       dispatch(fetchPostsBasedOnSearchTerm(searchTerm));
+      dispatch(changeFilter({ nameOfFilter: 'hot' }));
       return;
     } else {
       dispatch(fetchPosts(payload));
