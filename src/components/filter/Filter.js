@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import "./filter.css";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter, selectFilter } from "../../features/filterSlice";
+import { selectSearchTerm } from "../../features/searchSlice";
 
 // images
 import hot from "./images/hot.svg";
@@ -13,6 +14,7 @@ export const Filter = () => {
   const filter = useSelector(selectFilter);
   const [location, setLocation] = useState({});
   const baseLine = useRef(null);
+  const searchTerm = useSelector(selectSearchTerm);
 
   const handleClick = (e) => {
     const newType = e.target.title;
@@ -38,8 +40,10 @@ export const Filter = () => {
     baseLine.current.style.top = `${top}px`;
   }, []); // or trigger when url changed
 
-  return (
-    <section className="filter-container">
+
+  const divOfFilters = (
+    <>
+      {" "}
       <div className="base-line" ref={baseLine}></div>
       <div
         className="filter-btn"
@@ -92,6 +96,18 @@ export const Filter = () => {
           Top
         </button>
       </div>
+    </>
+  );
+
+  const searching = (
+    <div id="searching">
+      Search results for '{searchTerm}'
+    </div>
+  );
+
+  return (
+    <section className="filter-container">
+      {!searchTerm ? divOfFilters : searching}
     </section>
   );
 };

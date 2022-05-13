@@ -25,12 +25,16 @@ export const Posts = () => {
 
   useEffect(() => {
     const payload = { filter, subreddit: subreddit ? subreddit : "popular" };
-    if (searchTerm) {
+    console.log(url.searchTerm);
+
+    if (url.searchTerm) {
       dispatch(fetchPostsBasedOnSearchTerm(searchTerm));
+      return;
+    } else {
+      dispatch(fetchPosts(payload));
       dispatch(changeSearchTerm({ searchTerm: "" }));
       return;
     }
-    dispatch(fetchPosts(payload));
   }, [filter, url]);
 
   if (status === "loading") {
