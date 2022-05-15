@@ -11,9 +11,29 @@ export const SinglePost = ({
   text,
   image,
   numOfComments,
+  id,
 }) => {
   const [isTextLong, setIsTextLong] = useState(text && text.length > 250);
-  const icon = useSelector((state) => selectTargetSubredditIcon(state, subreddit));
+  const [comments, setComments] = useState(null);
+  const icon = useSelector((state) =>
+    selectTargetSubredditIcon(state, subreddit)
+  );
+
+  const handleClick = async (subreddit, id) => {
+    // fetch comments
+    const response_1 = await fetch(
+      `https://www.reddit.com/${subreddit}/comments/${id}.json`
+    );
+    const jsonResponse = await response_1.json();
+    const comments = jsonResponse[1].data.children;
+    // destructuring comments
+    const destructuredComms = comments.map((comment) => {
+      const { author, body, created_utc } = comment.data;
+      return { author: author, text: body, time: created_utc };
+    });
+    console.log(destructuredComms);
+    setComments(destructuredComms);
+  };
 
   return (
     <article className="single-post">
@@ -46,7 +66,9 @@ export const SinglePost = ({
         </div>
       ) : null}
 
-      <button>
+      {comments ? <p>Komentáře načteny</p> : null}
+
+      <button onClick={() => handleClick(subreddit, id)}>
         <span>{numOfComments} comments</span>
       </button>
     </article>

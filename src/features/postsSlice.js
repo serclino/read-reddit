@@ -16,8 +16,9 @@ export const fetchPosts = createAsyncThunk(
       `https://www.reddit.com/r/${subreddit}/${filter}.json`
     );
     const jsonData = await response.json();
+    // console.log(jsonData);
     const newPosts = jsonData.data.children.map((post) => {
-      const { subreddit_name_prefixed, author, num_comments, title } =
+      const { subreddit_name_prefixed, author, num_comments, title, id } =
         post.data;
       // handling fetching text
       const text = post.data.selftext ? post.data.selftext : null;
@@ -34,6 +35,7 @@ export const fetchPosts = createAsyncThunk(
         text: text,
         image: image,
         numOfComments: num_comments,
+        id: id
       };
     });
     return newPosts;

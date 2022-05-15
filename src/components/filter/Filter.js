@@ -32,7 +32,6 @@ export const Filter = () => {
 
   // on initial render
   useEffect(() => {
-    console.log("ahoj!");
     let element = document.querySelector(".filter-btn");
     if (element) {
       let coordinates = element.getBoundingClientRect();
@@ -46,7 +45,6 @@ export const Filter = () => {
 
   const divOfFilters = (
     <>
-      {" "}
       <div className="base-line" ref={baseLine}></div>
       <div
         className="filter-btn"
