@@ -3,6 +3,7 @@ import "./singlePost.css";
 import { useSelector } from "react-redux";
 import { selectTargetSubredditIcon } from "../../../features/subredditsSlice";
 import { Comments } from "./comments/Comments";
+import { Spinner } from "../../spinner/spinner-3/Spinner";
 
 export const SinglePost = ({
   author,
@@ -70,15 +71,17 @@ export const SinglePost = ({
         </div>
       ) : null}
 
-      {loadingComments === "loading" ? "Loading comments..." : null}
-
       {loadingComments === "succeeded" ? (
         <Comments comments={comments} />
       ) : null}
 
-      <button onClick={() => handleClick(subreddit, id)}>
-        Comments <div className="white-stripe"></div> <span>{numOfComments}</span>
-      </button>
+      <div className="btn-comments">
+        <button onClick={() => handleClick(subreddit, id)} disabled={!numOfComments}>
+          Comments <div className="white-stripe"></div>{" "}
+          <span>{numOfComments}</span>
+        </button>
+        {loadingComments === "loading" ? <Spinner /> : null}
+      </div>
     </article>
   );
 };

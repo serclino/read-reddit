@@ -58,7 +58,12 @@
   overflow: scroll;
 }
 
-.single-post > button {
+.btn-comments {
+  display: flex;
+  align-items: center;
+}
+
+.btn-comments > button {
   display: flex;
   padding: 5px 12px 6px;
   border-radius: 4px;
@@ -70,14 +75,14 @@
   font-size: 14px;
 }
 
-.single-post > button > .white-stripe {
+.btn-comments > button > .white-stripe {
   width: 1px;
   height: 20px;
   background-color: #fff;
   margin: 0 11px 0 12px;
 }
 
-.single-post > button > span {
+.btn-comments > button > span {
   font-weight: bold;
 }
 
