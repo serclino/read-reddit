@@ -77,7 +77,7 @@ export const SinglePost = ({
       ) : null}
 
       <button onClick={() => handleClick(subreddit, id)}>
-        <span>{numOfComments} comments</span>
+        Comments <div className="white-stripe"></div> <span>{numOfComments}</span>
       </button>
     </article>
   );

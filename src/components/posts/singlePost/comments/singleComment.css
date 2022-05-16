@@ -23,3 +23,9 @@
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb;
 }
+
+.singleComment:last-child > .comment-selftext {
+    border-bottom: none;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}

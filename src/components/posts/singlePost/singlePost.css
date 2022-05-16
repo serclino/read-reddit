@@ -59,18 +59,26 @@
 }
 
 .single-post > button {
+  display: flex;
   padding: 5px 12px 6px;
   border-radius: 4px;
   background-color: rgba(255, 69, 0, 0.08);
   border: none;
   margin-top: 16px;
+  color: #ff4500;
+  line-height: 1.36;
+  font-size: 14px;
+}
+
+.single-post > button > .white-stripe {
+  width: 1px;
+  height: 20px;
+  background-color: #fff;
+  margin: 0 11px 0 12px;
 }
 
 .single-post > button > span {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.36;
-  color: #ff4500;
+  font-weight: bold;
 }
 
 .image-container {
