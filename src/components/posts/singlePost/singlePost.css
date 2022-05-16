@@ -55,7 +55,6 @@
   font-size: 17px;
   line-height: 1.35;
   color: #292929;
-  margin-bottom: 16px;
   overflow: scroll;
 }
 
@@ -74,11 +73,6 @@
   color: #ff4500;
 }
 
-
-
-
-
-
 .image-container {
   width: 300px;
   height: auto;
@@ -96,4 +90,9 @@
   background-color: transparent;
   font-size: 17px;
   line-height: 1.35;
+}
+
+.comments {
+  margin-top: 24px;
+  border-top: 1px solid #ebebeb;
 }

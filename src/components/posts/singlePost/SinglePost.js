@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./singlePost.css";
 import { useSelector } from "react-redux";
 import { selectTargetSubredditIcon } from "../../../features/subredditsSlice";
+import { Comments } from "./comments/Comments";
 
 export const SinglePost = ({
   author,
@@ -66,7 +67,7 @@ export const SinglePost = ({
         </div>
       ) : null}
 
-      {comments ? <p>Komentáře načteny</p> : null}
+        {comments ? <Comments comments={comments} /> : null}
 
       <button onClick={() => handleClick(subreddit, id)}>
         <span>{numOfComments} comments</span>
