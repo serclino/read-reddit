@@ -16,11 +16,13 @@ export const SinglePost = ({
 }) => {
   const [isTextLong, setIsTextLong] = useState(text && text.length > 250);
   const [comments, setComments] = useState(null);
+  const [loadingComments, setLoadingComments] = useState("idle");
   const icon = useSelector((state) =>
     selectTargetSubredditIcon(state, subreddit)
   );
 
   const handleClick = async (subreddit, id) => {
+    setLoadingComments("loading");
     // fetch comments
     const response_1 = await fetch(
       `https://www.reddit.com/${subreddit}/comments/${id}.json`
@@ -32,8 +34,9 @@ export const SinglePost = ({
       const { author, body, created_utc } = comment.data;
       return { author: author, text: body, time: created_utc };
     });
-    console.log(destructuredComms);
+    // console.log(destructuredComms);
     setComments(destructuredComms);
+    setLoadingComments("succeeded");
   };
 
   return (
@@ -67,7 +70,11 @@ export const SinglePost = ({
         </div>
       ) : null}
 
-        {comments ? <Comments comments={comments} /> : null}
+      {loadingComments === "loading" ? "Loading comments..." : null}
+
+      {loadingComments === "succeeded" ? (
+        <Comments comments={comments} />
+      ) : null}
 
       <button onClick={() => handleClick(subreddit, id)}>
         <span>{numOfComments} comments</span>

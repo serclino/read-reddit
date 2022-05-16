@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import './singleComment.css';
+import "./singleComment.css";
 import { formatTimestamp } from "../../../../helpers/helperFunctions";
-import showArrow from "../../../subreddits/images/showArrow.svg";
 import arrow from "../../../subreddits/images/arrow.svg";
 import defaultUserIcon from "./images/defaultUserIcon.png";
 
@@ -10,20 +9,30 @@ export const SingleComment = ({ author, text, time }) => {
 
   useEffect(() => {
     async function fetchUserIcon() {
-      const response = await fetch(
-        `https://www.reddit.com/user/${author}/about.json`
-      );
-      const jsonResponse = await response.json();
-      const { snoovatar_img } = jsonResponse.data;
-      if (snoovatar_img) {
-        setUserIcon(snoovatar_img);
-      } else {
-        setUserIcon(defaultUserIcon);
+      try {
+        const response = await fetch(
+          `https://www.reddit.com/user/${author}/about.json`
+        );
+        if (response.ok) {
+          const jsonResponse = await response.json();
+          const { snoovatar_img } = jsonResponse.data;
+
+          if (snoovatar_img) {
+            setUserIcon(snoovatar_img);
+          } else {
+            setUserIcon(defaultUserIcon);
+          }
+        }
+      } catch (error) {
+        console.log(error);
       }
     }
     fetchUserIcon();
   }, []);
 
+  if (!userIcon) {
+    return;
+  }
   if (!time) {
     return;
   }
@@ -40,7 +49,6 @@ export const SingleComment = ({ author, text, time }) => {
       <div className="comment-selftext">
         <p className="selftext">{text}</p>
       </div>
-
     </article>
   );
 };

@@ -45,13 +45,13 @@ export const fetchPosts = createAsyncThunk(
 export const fetchPostsBasedOnSearchTerm = createAsyncThunk(
   "posts/fetchPostsBasedOnSearchTerm",
   async (searchTerm) => {
-    console.log(`https://www.reddit.com/search.json?q=${searchTerm}`);
+    // console.log(`https://www.reddit.com/search.json?q=${searchTerm}`);
     const response = await fetch(
       `https://www.reddit.com/search.json?q=${searchTerm}`
     );
     const jsonData = await response.json();
     const newPosts = jsonData.data.children.map((post) => {
-      const { subreddit_name_prefixed, author, num_comments, title } =
+      const { subreddit_name_prefixed, author, num_comments, title, id } =
         post.data;
       // handling fetching text
       const text = post.data.selftext ? post.data.selftext : null;
@@ -68,6 +68,7 @@ export const fetchPostsBasedOnSearchTerm = createAsyncThunk(
         text: text,
         image: image,
         numOfComments: num_comments,
+        id: id
       };
     });
     return newPosts;
