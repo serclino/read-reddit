@@ -44,3 +44,16 @@
   color: #ff4500;
   font-weight: 600;
 }
+
+/* NIGHT STYLES */
+.night-f-c {
+  background-color: #1f304c;
+}
+
+.night-filter-btn {
+  color: #8891aa !important;
+}
+
+.night-searching {
+  color: #f4f4f6;
+}

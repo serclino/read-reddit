@@ -3,11 +3,15 @@ import "./filter.css";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter, selectFilter } from "../../features/filterSlice";
 import { selectSearchTerm } from "../../features/searchSlice";
+import { selectTheme } from "../../features/themeSlice"
 
 // images
 import hot from "./images/hot.svg";
+import hotNight from './images/hotNight.svg'
 import newish from "./images/newish.svg";
+import newishNight from './images/newishNight.svg';
 import top from "./images/top.svg";
+import topNight from './images/topNight.svg'
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -15,6 +19,7 @@ export const Filter = () => {
   const [location, setLocation] = useState({});
   const baseLine = useRef(null);
   const searchTerm = useSelector(selectSearchTerm);
+  const theme = useSelector(selectTheme);
 
   const handleClick = (e) => {
     const newType = e.target.title;
@@ -53,13 +58,18 @@ export const Filter = () => {
         title="hot"
       >
         <img
-          src={hot}
+          src={!theme ? hotNight : hot}
           alt="hot"
           onClick={handleClick}
           title="hot"
           className={filter === "hot" ? "active-filter" : null}
         />
-        <button type="button" onClick={handleClick} title="hot">
+        <button
+          type="button"
+          className={!theme ? "night-filter-btn" : null}
+          onClick={handleClick}
+          title="hot"
+        >
           Hot
         </button>
       </div>
@@ -70,13 +80,18 @@ export const Filter = () => {
         title="new"
       >
         <img
-          src={newish}
+          src={!theme ? newishNight : newish}
           alt="new"
           onClick={handleClick}
           title="new"
           className={filter === "new" ? "active-filter" : null}
         />
-        <button type="button" onClick={handleClick} title="new">
+        <button
+          type="button"
+          className={!theme ? "night-filter-btn" : null}
+          onClick={handleClick}
+          title="new"
+        >
           New
         </button>
       </div>
@@ -87,23 +102,28 @@ export const Filter = () => {
         title="top"
       >
         <img
-          src={top}
+          src={!theme ? topNight : top}
           alt="top"
           onClick={handleClick}
           title="top"
           className={filter === "top" ? "active-filter" : null}
         />
-        <button type="button" onClick={handleClick} title="top">
+        <button
+          type="button"
+          className={!theme ? "night-filter-btn" : null}
+          onClick={handleClick}
+          title="top"
+        >
           Top
         </button>
       </div>
     </>
   );
 
-  const searching = <div id="searching">Search results for <span>'{searchTerm}'</span></div>;
+  const searching = <div className={!theme ? 'night-searching' : null} id="searching">Search results for <span>'{searchTerm}'</span></div>;
 
   return (
-    <section className="filter-container">
+    <section className={!theme ? 'filter-container night-f-c' : 'filter-container'}>
       {!searchTerm ? divOfFilters : searching}
     </section>
   );
