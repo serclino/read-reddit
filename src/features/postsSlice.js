@@ -23,7 +23,11 @@ export const fetchPosts = createAsyncThunk(
       // handling fetching text
       const text = post.data.selftext ? post.data.selftext : null;
       // handling fetching img
-      const image = post.data.url.includes(".jpg") ? post.data.url : null;
+      let image = post.data.url;
+      if (image.includes('.jpg') || image.includes('.png')) {
+      } else {
+        image = null;
+      }
       // handling time
       const timestamp = post.data.created_utc;
       const time = formatTimestamp(timestamp);
@@ -35,7 +39,7 @@ export const fetchPosts = createAsyncThunk(
         text: text,
         image: image,
         numOfComments: num_comments,
-        id: id
+        id: id,
       };
     });
     return newPosts;
@@ -50,13 +54,18 @@ export const fetchPostsBasedOnSearchTerm = createAsyncThunk(
       `https://www.reddit.com/search.json?q=${searchTerm}`
     );
     const jsonData = await response.json();
+    // console.log(jsonData);
     const newPosts = jsonData.data.children.map((post) => {
       const { subreddit_name_prefixed, author, num_comments, title, id } =
         post.data;
       // handling fetching text
       const text = post.data.selftext ? post.data.selftext : null;
       // handling fetching img
-      const image = post.data.url.includes(".jpg") ? post.data.url : null;
+      let image = post.data.url;
+      if (image.includes(".jpg") || image.includes(".png")) {
+      } else {
+        image = null;
+      }
       // handling time
       const timestamp = post.data.created_utc;
       const time = formatTimestamp(timestamp);
@@ -68,7 +77,7 @@ export const fetchPostsBasedOnSearchTerm = createAsyncThunk(
         text: text,
         image: image,
         numOfComments: num_comments,
-        id: id
+        id: id,
       };
     });
     return newPosts;

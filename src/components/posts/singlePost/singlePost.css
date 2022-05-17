@@ -48,7 +48,10 @@
   line-height: 1.35;
   color: #292929;
   margin-top: 24px;
-  margin-bottom: 10px;
+}
+
+.single-post > .selftext {
+  margin-top: 10px;
 }
 
 .selftext {
@@ -90,6 +93,7 @@
   width: 300px;
   height: auto;
   margin: 0 auto;
+  margin-top: 10px;
 }
 
 .image-container img {
