@@ -3,6 +3,7 @@ import "./subredditHeader.css";
 import { selectAllSubreddits } from "../../features/subredditsSlice";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { selectTheme } from "../../features/themeSlice";
 
 import defaultBg from './images/default-bg.jpg';
 
@@ -18,6 +19,7 @@ export const SubredditHeader = () => {
   if (!bannerImg) {
       bannerImg = defaultBg;
   }
+  const theme = useSelector(selectTheme);
 
   useEffect(() => {
     let element = document.querySelector(".subreddit-header");
@@ -31,7 +33,7 @@ export const SubredditHeader = () => {
         <p className="mySubreddit">{mySubreddit}</p>
         <p className="subscribers">{subscribers} subscribers</p>
       </div>
-      <div className="description">
+      <div className={!theme ? 'description night-description' : 'description'}>
         <h2>About community:</h2>
         <p>{description}</p>
       </div>

@@ -3,15 +3,15 @@ import "./filter.css";
 import { useDispatch, useSelector } from "react-redux";
 import { changeFilter, selectFilter } from "../../features/filterSlice";
 import { selectSearchTerm } from "../../features/searchSlice";
-import { selectTheme } from "../../features/themeSlice"
+import { selectTheme } from "../../features/themeSlice";
 
 // images
 import hot from "./images/hot.svg";
-import hotNight from './images/hotNight.svg'
+import hotNight from "./images/hotNight.svg";
 import newish from "./images/newish.svg";
-import newishNight from './images/newishNight.svg';
+import newishNight from "./images/newishNight.svg";
 import top from "./images/top.svg";
-import topNight from './images/topNight.svg'
+import topNight from "./images/topNight.svg";
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ export const Filter = () => {
       const top = coordinates.top + 48;
       baseLine.current.style.left = `${left}px`;
       baseLine.current.style.top = `${top}px`;
-          dispatch(changeFilter({ nameOfFilter: 'hot' }));
+      dispatch(changeFilter({ nameOfFilter: "hot" }));
     }
   }, [searchTerm]); // or trigger when url changed
 
@@ -120,10 +120,16 @@ export const Filter = () => {
     </>
   );
 
-  const searching = <div className={!theme ? 'night-searching' : null} id="searching">Search results for <span>'{searchTerm}'</span></div>;
+  const searching = (
+    <div className={!theme ? "night-searching" : null} id="searching">
+      Search results for <span>'{searchTerm}'</span>
+    </div>
+  );
 
   return (
-    <section className={!theme ? 'filter-container night-f-c' : 'filter-container'}>
+    <section
+      className={!theme ? "filter-container night-f-c" : "filter-container"}
+    >
       {!searchTerm ? divOfFilters : searching}
     </section>
   );
