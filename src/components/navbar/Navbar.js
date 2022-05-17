@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./navbar.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeSearchTerm } from "../../features/searchSlice";
 import { useHistory } from "react-router-dom";
+import { toggleTheme, selectTheme } from "../../features/themeSlice";
 
 // images
 import logo from "./images/logo.png";
@@ -14,6 +15,7 @@ export const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+  const theme = useSelector(selectTheme);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,17 +26,17 @@ export const Navbar = () => {
   };
 
   return (
-    <nav>
+    <nav className={!theme ? 'night-nav' : null}>
       <section className="nav-content">
         <div className="logo">
           <a href="http://localhost:3000/">
             <img src={logo} alt="logo" />
           </a>
         </div>
-        <form className="search-bar" onSubmit={handleSubmit}>
+        <form className="search-bar" className={!theme ? 'night-form search-bar' : 'search-bar'} onSubmit={handleSubmit}>
           <label htmlFor="searchTerm">
             <button
-              className="search-icon"
+              className={!theme? 'search-icon night-search-icon' : 'search-icon'}
               type="button"
               onClick={handleSubmit}
             >
@@ -43,6 +45,7 @@ export const Navbar = () => {
           </label>
           <input
             type="text"
+            className={!theme ? 'night-input' : 'day-input'}
             id="searchTerm"
             placeholder="Search for Topics"
             value={searchTerm}
@@ -50,7 +53,7 @@ export const Navbar = () => {
           />
         </form>
         <div className="nav-icons">
-          <button className="day">
+          <button onClick={() => dispatch(toggleTheme())} className="day">
             <img src={day} alt="day" />
           </button>
           <div className="github">

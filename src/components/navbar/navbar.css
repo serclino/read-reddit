@@ -45,7 +45,7 @@ input {
   border: none;
 }
 
-input[type="text"] {
+.day-input {
   background-color: #eef3f8;
   width: 86%;
   font-size: 14px;
@@ -84,4 +84,25 @@ input:focus {
 .nav-icons .github img {
   width: 100%;
   height: auto;
+}
+
+/* NIGHT STYLES */
+.night-nav {
+  background-color: #121c2d;
+}
+
+.nav-content > .night-form {
+  background-color: #394762;
+}
+
+.night-input {
+  background-color: #394762 !important;
+  width: 86%;
+  font-size: 14px;
+  line-height: 1.36;
+  color: #8891aa;
+}
+
+.night-search-icon {
+    background-color: #394762 !important;
 }
