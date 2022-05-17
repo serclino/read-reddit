@@ -8,17 +8,21 @@ import {
 } from "../../features/subredditsSlice";
 import { Link, NavLink } from "react-router-dom";
 import { Spinner } from "../spinner/spinner-2/Spinner";
+import { selectTheme } from "../../features/themeSlice";
 
 // images
 import home from "./images/home.svg";
 import showArrow from "./images/showArrow.svg";
+import showArrowNight from "./images/showArrowNight.svg";
 import arrow from "./images/arrow.svg";
+import arrowNight from "./images/arrowNight.svg";
 
 export const Subreddits = () => {
   const [showSubreddits, setShowSubreddits] = useState(true);
   const dispatch = useDispatch();
   const subreddits = useSelector(selectAllSubreddits);
   const status = useSelector(selectStatus);
+  const theme = useSelector(selectTheme);
 
   useEffect(() => {
     dispatch(fetchSubreddits());
@@ -26,7 +30,7 @@ export const Subreddits = () => {
 
   return (
     <>
-      <Link to="/" className="home">
+      <Link to="/" className={!theme ? "home home-night" : "home"}>
         <div className="stripe"></div>
         <img src={home} alt="home" />
         <h6>Home</h6>
@@ -36,13 +40,13 @@ export const Subreddits = () => {
         onClick={() => setShowSubreddits(!showSubreddits)}
       >
         <img
-          src={showArrow}
+          src={!theme ? showArrowNight : showArrow}
           alt="toggle arrow"
           className={`${
             showSubreddits && status === "succeeded" ? "arrow-up" : "arrow-down"
           }`}
         />
-        <h6>Subreddits</h6>
+        <h6 className={!theme ? "night-h6" : null}>Subreddits</h6>
       </button>
 
       {status === "loading" ? <Spinner /> : null}
@@ -51,11 +55,17 @@ export const Subreddits = () => {
         ? subreddits.map((subreddit, id) => {
             return (
               <div className="links" key={id}>
-                <img src={arrow} alt="arrow" />
+                <img src={!theme ? arrowNight : arrow} alt="arrow" />
                 <NavLink
                   to={`/${subreddit.subreddit}`}
-                  className="link-to-subreddit"
-                  activeClassName="clicked-link"
+                  className={
+                    !theme
+                      ? "night-link-to-subreddit link-to-subreddit"
+                      : "link-to-subreddit"
+                  }
+                  activeClassName={
+                    !theme ? "night-clicked-link" : "clicked-link"
+                  }
                 >
                   {subreddit.subreddit}
                 </NavLink>

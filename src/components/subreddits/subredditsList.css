@@ -47,8 +47,8 @@ h6 {
 }
 
 .links {
-    margin-left: 39px;
-    margin-bottom: 12px;
+  margin-left: 39px;
+  margin-bottom: 12px;
 }
 
 .link-to-subreddit {
@@ -60,6 +60,21 @@ h6 {
 }
 
 .clicked-link {
-    text-decoration: underline;
-    color: #ff4500;
+  text-decoration: underline;
+  color: #ff4500;
+}
+
+/* NIGHT STYLES */
+.home-night {
+  background-color: rgba(255, 69, 0, 0.2);
+}
+
+.night-h6,
+.night-link-to-subreddit {
+  color: #8891aa;
+}
+
+.night-clicked-link {
+  text-decoration: underline;
+  color: #ff4500;
 }
