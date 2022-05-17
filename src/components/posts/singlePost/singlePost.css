@@ -101,10 +101,39 @@
 }
 
 .show-more {
-  color: #FF4500;
+  color: #ff4500;
   border: none;
   cursor: pointer;
   background-color: transparent;
   font-size: 17px;
   line-height: 1.35;
+}
+
+/* NIGHT STYLES */
+.night-single-post {
+  background-color: #1f304c;
+}
+
+.head > .night-h5 {
+  color: #f4f4f6;
+}
+
+.night-para {
+  color: #8891aa;
+}
+
+.night-head {
+  border-bottom: 1px solid #8891aa;
+}
+
+.night-h4 {
+  color: #f4f4f6 !important;
+}
+
+.night-selftext {
+  color: #f4f4f6 !important;
+}
+
+.btn-comments > button > .night-w-stripe {
+  background-color: #606b85 !important;
 }

@@ -16,3 +16,12 @@
     color: #666;
     text-align: right;
 }
+
+/* NIGHT STYLES */
+.comments-night {
+  border-top: 1px solid #606b85;
+}
+
+.no-more-night {
+  color: #8891aa !important;
+}

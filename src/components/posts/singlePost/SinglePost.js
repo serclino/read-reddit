@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectTargetSubredditIcon } from "../../../features/subredditsSlice";
 import { Comments } from "./comments/Comments";
 import { Spinner } from "../../spinner/spinner-3/Spinner";
+import { selectTheme } from "../../../features/themeSlice";
 
 export const SinglePost = ({
   author,
@@ -21,6 +22,7 @@ export const SinglePost = ({
   const icon = useSelector((state) =>
     selectTargetSubredditIcon(state, subreddit)
   );
+  const theme = useSelector(selectTheme)
 
   const handleClick = async (subreddit, id) => {
     setLoadingComments("loading");
@@ -41,17 +43,17 @@ export const SinglePost = ({
   };
 
   return (
-    <article className="single-post">
-      <div className="head">
+    <article className={!theme ? 'single-post night-single-post' : 'single-post'}>
+      <div className={!theme ? 'head night-head' : 'head'}>
         <img src={icon} alt="reddit-avatar" className="reddit-avatar" />
-        <h5>{author}</h5>
-        <p className="subreddit-para">to {subreddit}</p>
-        <p className="time">{time}</p>
+        <h5 className={!theme ? 'night-h5' : null}>{author}</h5>
+        <p className={!theme ? 'subreddit-para night-para' : 'subreddit-para'}>to {subreddit}</p>
+        <p className={!theme ? 'time night-para' : 'time'}>{time}</p>
       </div>
-      <h4>{title}</h4>
+      <h4 className={!theme ? 'night-h4' : null}>{title}</h4>
       {text ? (
         isTextLong ? (
-          <p className="selftext">
+          <p className={!theme ? 'selftext night-selftext' : 'selftext'}>
             {text.substring(0, 250)}
             <button
               className="show-more"
@@ -62,7 +64,7 @@ export const SinglePost = ({
             </button>
           </p>
         ) : (
-          <p className="selftext">{text}</p>
+          <p className={!theme ? 'selftext night-selftext' : 'selftext'}>{text}</p>
         )
       ) : null}
       {image ? (
@@ -81,7 +83,7 @@ export const SinglePost = ({
             onClick={() => handleClick(subreddit, id)}
             disabled={!numOfComments}
           >
-            Comments <div className="white-stripe"></div>{" "}
+            Comments <div className={!theme ? 'white-stripe night-w-stripe' : 'white-stripe'}></div>
             <span>{numOfComments}</span>
           </button>
           {loadingComments === "loading" ? <Spinner /> : null}

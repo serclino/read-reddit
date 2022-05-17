@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./singleComment.css";
 import { formatTimestamp } from "../../../../helpers/helperFunctions";
 import arrow from "../../../subreddits/images/arrow.svg";
+import arrowNight from '../../../subreddits/images/arrowNight.svg'
 import defaultUserIcon from "./images/defaultUserIcon.png";
+import { selectTheme } from "../../../../features/themeSlice";
+import { useSelector } from "react-redux";
 
 export const SingleComment = ({ author, text, time }) => {
   const [userIcon, setUserIcon] = useState("");
+  const theme = useSelector(selectTheme)
 
   useEffect(() => {
     async function fetchUserIcon() {
@@ -41,13 +45,13 @@ export const SingleComment = ({ author, text, time }) => {
   return (
     <article className="singleComment">
       <div className="comment-header">
-        <img src={arrow} alt="arrow" className="comment-arrow" />
+        <img src={!theme ? arrowNight : arrow} alt="arrow" className="comment-arrow" />
         <img src={userIcon} alt="user's icon" className="userIcon" />
-        <h5>{author}</h5>
-        <p className="time">{formattedTime}</p>
+        <h5 className={!theme ? 'night-author-h5' : null}>{author}</h5>
+        <p className={!theme ? 'time night-para' : 'time'}>{formattedTime}</p>
       </div>
-      <div className="comment-selftext">
-        <p className="selftext">{text}</p>
+      <div className={!theme ? 'comment-selftext night-c-s' : 'comment-selftext'}>
+        <p className={!theme ? 'selftext night-selftext' : 'selftext'}>{text}</p>
       </div>
     </article>
   );

@@ -29,3 +29,13 @@
     margin-bottom: 16px;
     padding-bottom: 0px;
 }
+
+/* NIGHT STYLES */
+.night-c-s {
+    border-top: 1px solid #606b85;
+    border-bottom: 1px solid #606b85;
+}
+
+.night-author-h5 {
+    color: #f4f4f6;
+}
