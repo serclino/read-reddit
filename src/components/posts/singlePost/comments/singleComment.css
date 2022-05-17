@@ -24,8 +24,8 @@
     border-bottom: 1px solid #ebebeb;
 }
 
-.singleComment:last-child > .comment-selftext {
+.singleComment:nth-last-child(2) > .comment-selftext {
     border-bottom: none;
-    margin-bottom: 0px;
+    margin-bottom: 16px;
     padding-bottom: 0px;
 }

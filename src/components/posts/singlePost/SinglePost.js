@@ -36,8 +36,8 @@ export const SinglePost = ({
       return { author: author, text: body, time: created_utc };
     });
     // console.log(destructuredComms);
-    setComments(destructuredComms);
     setLoadingComments("succeeded");
+    setComments(destructuredComms);
   };
 
   return (
@@ -75,13 +75,18 @@ export const SinglePost = ({
         <Comments comments={comments} />
       ) : null}
 
-      <div className="btn-comments">
-        <button onClick={() => handleClick(subreddit, id)} disabled={!numOfComments}>
-          Comments <div className="white-stripe"></div>{" "}
-          <span>{numOfComments}</span>
-        </button>
-        {loadingComments === "loading" ? <Spinner /> : null}
-      </div>
+      {!comments ? (
+        <div className="btn-comments">
+          <button
+            onClick={() => handleClick(subreddit, id)}
+            disabled={!numOfComments}
+          >
+            Comments <div className="white-stripe"></div>{" "}
+            <span>{numOfComments}</span>
+          </button>
+          {loadingComments === "loading" ? <Spinner /> : null}
+        </div>
+      ) : null}
     </article>
   );
 };

@@ -1,0 +1,18 @@
+.comments {
+  margin-top: 24px;
+  border-top: 1px solid #ebebeb;
+}
+
+.comments > button {
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: none;
+  color: #ff4500;;
+  background-color: rgba(255, 69, 0, 0.08);
+}
+
+.comments > p {
+    font-size: 10px;
+    color: #666;
+    text-align: right;
+}
