@@ -34,6 +34,7 @@ form {
   width: 20px;
   height: 20px;
   border: none;
+    background-color: #eef3f8;
 }
 
 .search-icon img {
@@ -96,7 +97,7 @@ input:focus {
 }
 
 .night-input {
-  background-color: #394762 !important;
+  background-color: #394762;
   width: 86%;
   font-size: 14px;
   line-height: 1.36;
@@ -104,5 +105,5 @@ input:focus {
 }
 
 .night-search-icon {
-    background-color: #394762 !important;
+    background-color: #394762;
 }

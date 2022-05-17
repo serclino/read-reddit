@@ -7,9 +7,12 @@ import { toggleTheme, selectTheme } from "../../features/themeSlice";
 
 // images
 import logo from "./images/logo.png";
+import logoNight from './images/logo-night.png'
 import search from "./images/search.svg";
-import day from "./images/day.png";
+import searchNight from './images/search-night.svg';
+import day from "./images/day.svg";
 import github from "./images/github.png";
+import night from './images/night.svg'
 
 export const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -30,17 +33,17 @@ export const Navbar = () => {
       <section className="nav-content">
         <div className="logo">
           <a href="http://localhost:3000/">
-            <img src={logo} alt="logo" />
+            <img src={!theme ? logoNight : logo} alt="logo" />
           </a>
         </div>
-        <form className="search-bar" className={!theme ? 'night-form search-bar' : 'search-bar'} onSubmit={handleSubmit}>
+        <form className={!theme ? 'night-form search-bar' : 'search-bar'} onSubmit={handleSubmit}>
           <label htmlFor="searchTerm">
             <button
               className={!theme? 'search-icon night-search-icon' : 'search-icon'}
               type="button"
               onClick={handleSubmit}
             >
-              <img src={search} alt="" />
+              <img src={!theme ? searchNight : search} alt="" />
             </button>
           </label>
           <input
@@ -54,7 +57,7 @@ export const Navbar = () => {
         </form>
         <div className="nav-icons">
           <button onClick={() => dispatch(toggleTheme())} className="day">
-            <img src={day} alt="day" />
+            <img src={!theme ? day : night} alt="day" />
           </button>
           <div className="github">
             <a href="https://github.com/serclino" target="_blank">
