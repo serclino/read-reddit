@@ -1,7 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export const ErrorPage = () => {
   return (
-    <div>ErrorPage</div>
-  )
+    <div className='error'>
+      <p>Oops! Something went wrong.</p>
+    </div>
+  );
 }
