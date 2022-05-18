@@ -34,7 +34,7 @@ export const Posts = () => {
       dispatch(changeSearchTerm({ searchTerm: "" }));
       return;
     }
-  }, [filter, url]);
+  }, [filter, url, dispatch, searchTerm, subreddit]);
 
   if (status === "loading") {
     return <Spinner />;

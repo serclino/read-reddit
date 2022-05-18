@@ -16,7 +16,7 @@ export const Comments = ({ comments }) => {
 
   useEffect(() => {
     displayComms();
-  }, []);
+  }, [displayComms]);
 
   return (
     <section className={!theme ? 'comments-night comments' : 'comments'}>

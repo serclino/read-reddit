@@ -28,7 +28,7 @@ export const Navbar = () => {
     } else {
       htmlElement.style.backgroundColor = "#fcfcfc";
     }
-  }, [theme]);
+  }, [theme, htmlElement.style]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,7 +75,7 @@ export const Navbar = () => {
             <img src={!theme ? day : night} alt="day" />
           </button>
           <div className="github">
-            <a href="https://github.com/serclino" target="_blank">
+            <a href="https://github.com/serclino" target="_blank" rel="noreferrer">
               <img src={github} alt="" />
             </a>
           </div>

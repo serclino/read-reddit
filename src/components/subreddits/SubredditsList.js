@@ -26,7 +26,7 @@ export const Subreddits = () => {
 
   useEffect(() => {
     dispatch(fetchSubreddits());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

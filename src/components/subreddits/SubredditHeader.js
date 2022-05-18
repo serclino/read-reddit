@@ -24,7 +24,7 @@ export const SubredditHeader = () => {
   useEffect(() => {
     let element = document.querySelector(".subreddit-header");
     element.style.backgroundImage = `url(${bannerImg})`;
-  }, [title]);
+  }, [title, bannerImg]);
 
   return (
     <>

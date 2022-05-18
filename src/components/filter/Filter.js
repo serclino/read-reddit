@@ -46,7 +46,7 @@ export const Filter = () => {
       baseLine.current.style.top = `${top}px`;
       dispatch(changeFilter({ nameOfFilter: "hot" }));
     }
-  }, [searchTerm]); // or trigger when url changed
+  }, [searchTerm, dispatch]);
 
   const divOfFilters = (
     <>

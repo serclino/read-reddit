@@ -32,7 +32,7 @@ export const SingleComment = ({ author, text, time }) => {
       }
     }
     fetchUserIcon();
-  }, []);
+  }, [author]);
 
   if (!userIcon) {
     return;
