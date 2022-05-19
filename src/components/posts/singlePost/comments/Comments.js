@@ -5,7 +5,7 @@ import { selectTheme } from "../../../../features/themeSlice";
 import { useSelector } from "react-redux";
 
 export const Comments = ({ comments }) => {
-  const [allComments, _] = useState(comments);
+  const [allComments] = useState(comments);
   const [displayedComments, setDisplayedComments] = useState([]);
   const theme = useSelector(selectTheme)
 
@@ -19,7 +19,7 @@ export const Comments = ({ comments }) => {
       const splice = allComments.splice(0,3);
       setDisplayedComments(prevState => prevState.concat(splice));
     },
-    []
+    [allComments]
   )
 
   useEffect(() => {
