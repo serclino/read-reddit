@@ -42,7 +42,7 @@ export const Navbar = () => {
     <nav className={!theme ? "night-nav" : null}>
       <section className="nav-content">
         <div className="logo">
-          <a href="http://localhost:3000/">
+          <a href="https://read-reddit.netlify.app">
             <img src={!theme ? logoNight : logo} alt="logo" />
           </a>
         </div>
@@ -75,7 +75,11 @@ export const Navbar = () => {
             <img src={!theme ? day : night} alt="day" />
           </button>
           <div className="github">
-            <a href="https://github.com/serclino" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/serclino"
+              target="_blank"
+              rel="noreferrer"
+            >
               <img src={github} alt="" />
             </a>
           </div>
