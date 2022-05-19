@@ -10,7 +10,7 @@ const initialState = {
 export const fetchSubreddits = createAsyncThunk(
   "subreddits/fetchSubreddits",
   async () => {
-    const response = await fetch("http://www.reddit.com/subreddits.json");
+    const response = await fetch("https://www.reddit.com/subreddits.json");
     const jsonData = await response.json();
     const newSubreddits = jsonData.data.children.map((subreddit) => {
       const {
