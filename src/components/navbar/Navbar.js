@@ -76,7 +76,7 @@ export const Navbar = () => {
           </button>
           <div className="github">
             <a
-              href="https://github.com/"
+              href="https://github.com/serclino"
               target="_blank"
               rel="noreferrer"
             >
