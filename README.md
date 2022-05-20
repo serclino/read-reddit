@@ -5,6 +5,7 @@ This is training project for Codecademy course (Frontend engineer). The goal of 
 [Live Version](https://read-reddit.netlify.app/).
 
 ## Preview
+
 ![Preview image](./public/preview.png)
 
 ## Technologies
